@@ -35,8 +35,7 @@ jobs:
 
       - name: Run Selenium script
         run: |
-          python iftar.py > output.log 2>&1
-          cat output.log
+          python iftar.py > output.log 2>&1 || (cat output.log && exit 1)
 
       - name: Upload logs as artifact
         uses: actions/upload-artifact@v4
