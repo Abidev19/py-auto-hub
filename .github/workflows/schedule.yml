@@ -23,20 +23,11 @@ jobs:
 
       - name: Install Chrome and ChromeDriver
         run: |
-          set -e
           sudo apt-get update
-          sudo apt-get install -y wget unzip
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install -y ./google-chrome-stable_current_amd64.deb
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d'.' -f1)
-          DRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/latest-versions-per-milestone.json" | grep -A 5 "\"$CHROME_VERSION\"" | grep "chromedriver" | grep -oP '"version\":\s*\"\K[0-9.]+' | head -1)
-          if [ -z \"$DRIVER_VERSION\" ]; then
-            echo \"Failed to determine matching ChromeDriver version for Chrome $CHROME_VERSION\";
-            exit 1;
-          fi
-          wget https://edgedl.me.chromium.org/edgedl/chrome/chrome-for-testing/$DRIVER_VERSION/linux64/chromedriver-linux64.zip
-          unzip chromedriver-linux64.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/  
+          sudo apt-get install -y google-chrome-stable
+          sudo apt-get install -y chromium-chromedriver
+          which chromedriver
+          chromedriver --version        
 
       - name: Run Selenium script
         run: |
