@@ -4,6 +4,7 @@ on:
   schedule:
     # 12:50 PM Turkey time = 09:50 UTC
     - cron: '10 10 * * *'
+  workflow_dispatch:  
 
 jobs:
   run-script:
@@ -33,4 +34,13 @@ jobs:
           sudo mv chromedriver /usr/local/bin/  
 
       - name: Run Selenium script
-        run: python iftar.py
+        run: |
+          python iftar.py > output.log 2>&1
+          cat output.log
+
+      - name: Upload logs as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: selenium-logs
+          path: output.log
+
