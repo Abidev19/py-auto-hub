@@ -24,7 +24,8 @@ button = driver.find_element(By.XPATH,value='//*[@id="formKayit"]/div/div/div/di
 
 user_name.send_keys("98872013266")
 password.send_keys("440442")
-button.click()
+driver.execute_script("arguments[0].scrollIntoView(true);", button)
+driver.execute_script("arguments[0].click();", button)
 
 wait = WebDriverWait(driver, 10)
 basvur = wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Başvur")))
@@ -36,5 +37,6 @@ basvur_success.click()
 
 # time.sleep(6)
 driver.close()
+
 
 
