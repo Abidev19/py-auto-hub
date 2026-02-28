@@ -30,13 +30,16 @@ driver.execute_script("arguments[0].click();", button)
 wait = WebDriverWait(driver, 10)
 basvur = wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Başvur")))
 # basvur = driver.find_element(By.LINK_TEXT,value="Başvur")
-basvur.click()
+driver.execute_script("arguments[0].scrollIntoView(true);", basvur)
+driver.execute_script("arguments[0].click();", basvur)
 
 basvur_success = wait.until(EC.element_to_be_clickable((By.CLASS_NAME,"btn-success")))
-basvur_success.click()
+driver.execute_script("arguments[0].scrollIntoView(true);", basvur_success)
+driver.execute_script("arguments[0].click();", basvur_success)
 
 # time.sleep(6)
 driver.close()
+
 
 
 
