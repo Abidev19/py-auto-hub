@@ -27,7 +27,7 @@ password.send_keys("440442")
 driver.execute_script("arguments[0].scrollIntoView(true);", button)
 driver.execute_script("arguments[0].click();", button)
 
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 20)
 basvur = wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Başvur")))
 # basvur = driver.find_element(By.LINK_TEXT,value="Başvur")
 driver.execute_script("arguments[0].scrollIntoView(true);", basvur)
@@ -41,6 +41,7 @@ driver.save_screenshot("debug.png")
 
 # time.sleep(6)
 driver.close()
+
 
 
 
