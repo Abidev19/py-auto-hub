@@ -11,6 +11,7 @@ options = Options()
 options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--window-size=1920,1080")
 
 # chrome_options.add_experimental_option("detach",True)
 service = Service("/usr/bin/chromedriver")
@@ -41,6 +42,7 @@ driver.save_screenshot("debug.png")
 
 # time.sleep(6)
 driver.close()
+
 
 
 
