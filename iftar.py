@@ -37,8 +37,11 @@ basvur_success = wait.until(EC.element_to_be_clickable((By.CLASS_NAME,"btn-succe
 driver.execute_script("arguments[0].scrollIntoView(true);", basvur_success)
 driver.execute_script("arguments[0].click();", basvur_success)
 
+driver.save_screenshot("debug.png")
+
 # time.sleep(6)
 driver.close()
+
 
 
 
