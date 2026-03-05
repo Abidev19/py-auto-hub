@@ -34,14 +34,15 @@ basvur = wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Başvur")))
 driver.execute_script("arguments[0].scrollIntoView(true);", basvur)
 driver.execute_script("arguments[0].click();", basvur)
 
-basvur_success = wait.until(EC.element_to_be_clickable((By.CLASS_NAME,"btn-success")))
-driver.execute_script("arguments[0].scrollIntoView(true);", basvur_success)
-driver.execute_script("arguments[0].click();", basvur_success)
+# basvur_success = wait.until(EC.element_to_be_clickable((By.CLASS_NAME,"btn-success")))
+# driver.execute_script("arguments[0].scrollIntoView(true);", basvur_success)
+# driver.execute_script("arguments[0].click();", basvur_success)
 
 driver.save_screenshot("debug.png")
 
 # time.sleep(6)
 driver.close()
+
 
 
 
