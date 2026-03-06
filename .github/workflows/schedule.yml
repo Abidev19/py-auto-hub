@@ -3,7 +3,7 @@ name: Daily Selenium Run
 on:
   schedule:
     # 12:50 PM Turkey time = 09:50 UTC
-    - cron: '16 14 * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:  
 
 jobs:
